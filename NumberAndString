@@ -1,0 +1,146 @@
+/*--------------------------------------------------------------------------
+*Autor:            Darko Pasalic
+*Kompajliranje:    javac NumberAndString.java
+*Izvrsavanje:      java NumberAndString
+*Funkcija:         Racuna aritmeticku sredinu za uneseni niz brojeva,
+*                   i ispisuje uneseni niz znakova u obrnutom redoslijedu.
+*Napomena:         Realni brojevi se unose sa zapetom ili tackom za odvajanje
+*                  dijela broja iza decimalne tacke u zavisnosti od podesavanja 
+*                  operativnog sistema, npr. 4,66  ili 4.66 .
+*--------------------------------------------------------------------------*/
+
+import java.util.Scanner;
+ class AvgValue                            //klasa koja racuna prosjek
+
+   {
+
+   double sumOfNum;
+   int counter;
+
+     AvgValue(double sum,int count)        // konstruktor instance klase AvgValue
+
+      {
+ 
+        sumOfNum=sum;                      // suma
+        counter=count;                     // brojac
+
+      }
+
+     double getAverage()                   // metod koji racuna prosjek 
+
+      {
+
+        return (sumOfNum/counter);         // vraca se aritmeticka sredina
+ 
+      }
+
+    }
+
+  class ReversedName                        // klasa koja vrsi obrtanje redoslijeda slova u imenu
+ 
+    {
+       
+      String nameToReverse;            
+
+      ReversedName(String name)             // konstruktor instance klase ReversedName 
+  
+        {
+
+          nameToReverse=name;               // ulazni argument name se dodjeljuje varijabli klase nameToReverse
+
+        }     
+
+      String getReversedName()              // metod koji obrce redoslijed slova
+
+        {
+        
+          String result=""; 
+          int i;
+
+          for (i = nameToReverse.length()-1; i >= 0; i--)       //petlja broji unazad od ukupnog broja slova
+            {                                                   //imena do 0, i pri tome od najveceg indeksa(koji oznacava zadnje slovo)
+                                                             	//iscitava vrijednost slova za dati indeks i dodaje ga u reverse varijablu
+              result=result + nameToReverse.charAt(i);          // dok ne stigne do prvog slova(najmanji indeks).*/
+             
+            } 
+                     
+           return result;
+
+        } 
+
+    }    
+
+ class NumberAndString
+
+{
+   public static void main(String args[])
+
+  {
+
+   double sum,number;
+   int count=0;
+   String name;
+   int x;
+      
+   Scanner read1=new Scanner(System.in); 
+   
+   System.out.println("If you want to insert array of numbers and calculate average,"+ "\n"+      // meni sa izborom jedne od dvije opcije programa
+                      "press 1, if you want to enter a name and print it in reverse, press 2");     
+                                                                                                   
+   x=read1.nextInt();
+   
+   if ( x == 1) 
+    
+     {
+  
+        System.out.println("Enter an array of numbers, when you are done, enter 0 "+"\n"+
+                          "and program will calculate average value of those numbers.");
+
+        System.out.println("enter 1. number");                                                   //unos prvog broja u nizu se radi prije while petlje
+        number=read1.nextDouble();                                                                //a ostali se unose unutar petlje dok se ne unese 0.
+        sum=number;                                                                               //Za svaki uneseni broj se count varijabla uveca za 1,
+                                                                                                  //a sum varijabli se dodaje taj broj */     
+         while(number!=0)                                                                         
+
+          {
+
+            System.out.println("enter "+(count+2)+". number ");  
+            number=read1.nextDouble();
+            sum=sum+number;
+            count=count+1;
+
+           }
+ 
+        AvgValue calcAvg=new AvgValue(sum,count);                                    // kreiranje instance klase AvgVal
+
+        System.out.println("Average value is : " +calcAvg.getAverage());             // pozivanje metoda klase AvgValue
+            
+      }  
+
+    else if (x==2)
+
+      {
+      
+        System.out.println("Enter the name: ");                                              // unos imena za obradu 
+        name=read1.next();                                                                   //i kreiranje instance klase  
+                                                                                             //koja ce ispisati ime obrnutim 
+        ReversedName reverse=new ReversedName(name);                                         //redoslijedom*/
+        
+        System.out.println("Name printed in reverse is: " + reverse.getReversedName());      // pozivanje metoda za obrtanje redoslijeda imena
+ 
+      }
+
+     else 
+  
+      {
+        
+        System.out.println("Wrong value. Start the program again."); 
+
+      }
+    
+     
+    }
+
+ }
+   
+   
