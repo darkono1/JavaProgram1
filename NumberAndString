@@ -57,10 +57,10 @@ import java.util.Scanner;
           String result=""; 
           int i;
 
-          for (i = nameToReverse.length()-1; i >= 0; i--)       //petlja broji unazad od ukupnog broja slova
-            {                                                   //imena do 0, i pri tome od najveceg indeksa(koji oznacava zadnje slovo)
-                                                             	//iscitava vrijednost slova za dati indeks i dodaje ga u reverse varijablu
-              result=result + nameToReverse.charAt(i);          // dok ne stigne do prvog slova(najmanji indeks).*/
+          for (i = nameToReverse.length(); i >= 1; i--)       //petlja broji unazad od ukupnog broja slova
+            {                                                 //imena do zadnjeg slova, i pri tome od najveceg indeksa(koji oznacava zadnje slovo)
+                                                             	//iscitava vrijednost slova za dati indeks(mora se umanjiti za 1 jer ide od 0) i 
+              result=result + nameToReverse.charAt(i-1);      // dodaje ga u reverse varijablu dok ne stigne do prvog slova(najmanji indeks).*/
              
             } 
                      
